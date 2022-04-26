@@ -14,14 +14,19 @@ public class ServicesController {
     @Autowired
     private ServicesService servicesService;
 
-    @PostMapping("/")
+    @PostMapping()
     public Mono<Services> save(@RequestBody Services services){
         return servicesService.save(services);
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public Flux<Services> findAll(){
         return servicesService.findAll();
+    }
+
+    @GetMapping("{channelCode}")
+    public Flux<Services> findAllByChannelCode(@PathVariable String channelCode){
+        return servicesService.findAllByChannelCode(channelCode);
     }
 
 }

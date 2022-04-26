@@ -8,5 +8,6 @@ public interface ServicesService {
 
     Mono<Services> save(Services services);
     Flux<Services> findAll();
+    Flux<Services> findAllByChannelCode(String channelCode);
 
 }

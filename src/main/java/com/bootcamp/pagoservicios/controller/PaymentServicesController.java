@@ -14,12 +14,12 @@ public class PaymentServicesController {
     @Autowired
     private PaymentServicesService paymentServicesService;
 
-    @GetMapping("/")
+    @GetMapping()
     public Flux<PaymentServices> findAll(){
         return paymentServicesService.findAll();
     }
 
-    @PostMapping("/")
+    @PostMapping()
     public Mono<PaymentServices> save(@RequestBody PaymentServices paymentServices){
         return paymentServicesService.save(paymentServices);
     }

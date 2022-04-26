@@ -23,4 +23,12 @@ public class ServicesServiceImpl implements ServicesService {
     public Flux<Services> findAll() {
         return servicesRepository.findAll();
     }
+
+    @Override
+    public Flux<Services> findAllByChannelCode(String channelCode) {
+
+        return servicesRepository.findAll().filter(a -> a.getChannels().stream().filter(b ->
+                b.getChannelCode().equals(channelCode)).count()>0
+        );
+    }
 }
